@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using api.Dtos.Stock;
 using api.Mappers;
 using api.Data;
 
 namespace api.Controllers
-{   
+{
     [ApiController]
     [Route("api/stock")]
     public class StockController : ControllerBase
@@ -40,5 +41,14 @@ namespace api.Controllers
             return Ok(stock.ToStockDto());
         }
         
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateStockRequestDto stockDto)
+        {
+            var stockModel = stockDto.ToStockFromCreateDTO();
+            _context.Stocks.Add(stockModel);
+            _context.SaveChanges();
+
+            return CreatedAtAction(nameof(GetById), new {id = stockModel.Id}, stockModel.ToStockDto());
+        }
     }
 }
