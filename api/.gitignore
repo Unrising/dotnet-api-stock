@@ -1,4 +1,59 @@
-/obj/debug
-/bin/Debug/net8.0
-/bin
-/obj
+# Build
+bin/
+obj/
+out/
+
+# Rider / VS Code / VS for Mac
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Dotnet tool manifests
+.dotnet/
+
+# Global NuGet packages
+*.nupkg
+*.snupkg
+*.nuspec
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Identity / secrets
+secrets.json
+*.db
+
+# EF Core migrations snapshot files (optional)
+Migrations/*.Designer.cs
+Migrations/*ModelSnapshot.cs
+
+# Logs
+*.log
+logs/
+log/
+
+# Publish output
+publish/
+
+# Others
+Properties/launchSettings.json
+wwwroot/
+node_modules/
+.env
+.env.*
+
+# Mac/Linux
+.DS_Store
+*.swp
+
+# Windows thumbnails / explorer junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
